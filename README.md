@@ -10,11 +10,11 @@
 
 ### Association
 
-- has_many :room_users
-- has_many :rooms, through: :room_users
+- has_many :train_users
+- has_many :trains, through: :train_users
 - has_many :messages
 
-## rooms table
+## trains table
 
 | Column         | Type    | Options     |
 | ------         | ------  | ----------- |
@@ -23,20 +23,20 @@
 
 ### Association
 
-- has_many :room_users
-- has_many :users, through: :room_users
+- has_many :train_users
+- has_many :users, through: :train_users
 - has_many :messages
 
-## room_users table
+## train_users table
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | user   | references | null: false, foreign_key: true |
-| room  | references | null: false, foreign_key: true |
+| train  | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :room
+- belongs_to :train
 - belongs_to :user
 
 ## messages table
@@ -45,9 +45,9 @@
 | ------- | ---------- | ------------------------------ |
 | content | string     |                                |
 | user    | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
+| train   | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :room
+- belongs_to :train
 - belongs_to :user
